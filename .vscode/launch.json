@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "havOPL test (MSVC Debug)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/out/build/msvc/Debug/${input:test}.exe",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "CMake: build MSVC Debug"
+    },
+    {
+      "name": "havOPL test (MinGW Debug)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/out/build/mingw-debug/${input:test}.exe",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb.exe",
+      "preLaunchTask": "CMake: build MinGW Debug"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "test",
+      "type": "pickString",
+      "description": "Test executable to debug",
+      "options": [
+        "havOPLTests",
+        "havOPLEnvelopeTests",
+        "havOPLModulationTests"
+      ],
+      "default": "havOPLTests"
+    }
+  ]
+}
